@@ -8,7 +8,7 @@ let system =
         for(let i = 0; i < inputA.length; i++){
 
             let button = $("<button>" + inputA[i] + "</button>");
-            button.attr("id", i);
+            // button.attr("id", i);
             button.attr("value", inputA[i]);
             button.attr("class", "button");
             console.log($(button).val());
@@ -22,6 +22,7 @@ let system =
 
 
     displayImages: function(topicInput){
+
         let search = topicInput;
         const queryURL = `https://api.giphy.com/v1/gifs/search?api_key=OVaM1ofUqUE26I2l1H5ec6voBazampFz&q=${search}&limit=10&offset=0&rating=G&lang=en`
 
@@ -64,8 +65,22 @@ let system =
     },
     appendButton: function(input){
 
-        let array = [input];
-        system.buttonPrint(array);
+        // let array = [input];
+        // system.buttonPrint(array);
+        // $(".results").empty();
+        // system.displayImages(this.val());
+        // let array = [$(this).attr('id')];
+        // system.buttonPrint(array);
+        // console.log($(this).attr('id'));
+        // console.log(input);
+        // system.displayImages(input);
+
+        let button = $("<button>" + input + "</button>");
+            // button.attr("id", i);
+            button.attr("value", input);
+            button.attr("class", "button");
+            console.log($(button).val());
+            $(".buttonContainer").append(button);
 
 
         
@@ -100,11 +115,15 @@ let system =
 system.buttonPrint(topics);
 system.displayImages("Terry Crews");
 
-const x = "Add A Button"
+
+
+
+//Append a button that allows you to add a topic button
+const x = "Add A Button!"
 let button1 = $("<button>" + x + "</button>");
 button1.attr("id", x);
 button1.attr("value", x);
-button1.attr("class", x);
+button1.attr("class", "button1");
 console.log($(button1).val());
 $(".buttonContainer").append(button1);
 
@@ -132,8 +151,9 @@ $(".buttonContainer").append(button1);
 
 
 
-$(".button").on("click", function() {
+$(".buttonContainer").on("click",".button", function() {
     console.log("Registered Click");
+    console.log(this);
     $(".results").empty();
     // system.displayImages(this.val());
     // let array = [$(this).attr('id')];
@@ -147,9 +167,32 @@ $(".button").on("click", function() {
 
 
 });
-$(".button1").on("click", function(){
 
-    system.appendButton();
+$(".button1").on("click", function(){
+    //this is the "ADD A BUTTON function"
+
+    console.log("Registered Click");
+
+    const parameter = $("#search-term").val();
+    console.log(parameter);
+
+
+
+
+
+    if(parameter === ""){
+        return;
+    }
+    else{
+        let array = [parameter.toString()];
+        system.buttonPrint(array);
+        $(".results").empty();
+        system.displayImages(parameter);
+        
+        // system.appendButton(parameter);
+        return;
+    }
+
 
 
 
