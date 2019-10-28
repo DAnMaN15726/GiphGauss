@@ -39,7 +39,17 @@ let system =
                 const image = $("<img>");
                 image.attr("src", imgURL);
                 image.attr("alt", i);
+                image.attr("data-still", response.data[i].embed_url);
+                // image.attr("data-animate", `${response.data[i].embed_url} + `);
+
+
+
+                image.attr("data-state", "still");
+                image.attr("class", "gif");
+
                 $(".results").append(image);
+                $(".results").append(`Rating: ${response.data[i].rating}`);
+                $(".results").append(`</br>`);
 
 
             }
@@ -198,3 +208,15 @@ $(".button1").on("click", function(){
 
 })
 
+
+
+
+
+$(".gif").on("click", function(){
+
+    const state = $(this).attr("data-state");
+
+
+
+
+})
