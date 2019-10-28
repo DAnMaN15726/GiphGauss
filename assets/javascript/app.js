@@ -1,7 +1,7 @@
 const topics = ["gaming", "music", "horror", "funny"];
 
 
-let system = 
+const system = 
 {
     buttonPrint: function(inputA){
         //prints buttons using a for loop. adds a numerical id for css manipulation in case.
