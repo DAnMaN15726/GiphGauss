@@ -35,7 +35,7 @@ const system =
             console.log(response);
             for(let i = 0; i < 10; i++){
 
-                const imgURL = response.data[i].embed_url;
+                const imgURL = response.data[i].images.fixed_height.url;
                 const image = $("<img>");
                 image.attr("src", imgURL);
                 image.attr("alt", i);
