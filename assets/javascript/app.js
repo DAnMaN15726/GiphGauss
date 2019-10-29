@@ -1,5 +1,6 @@
-const topics = ["gaming", "music", "horror", "funny"];
-
+const topics = ["Gaming", "Music", "Horror", "Funny"];
+let y = 10;
+let variaHolder;
 
 const system = 
 {
@@ -22,7 +23,7 @@ const system =
 
 
     displayImages: function(topicInput){
-
+        variaHolder = topicInput;
         let search = topicInput;
         const queryURL = `https://api.giphy.com/v1/gifs/search?api_key=OVaM1ofUqUE26I2l1H5ec6voBazampFz&q=${search}&limit=10&offset=0&rating=G&lang=en`
 
@@ -51,13 +52,25 @@ const system =
                 
 
                 $(".results").append(image);
+                $(".results").append(`</br>`);
+                $(".results").append(`Date Uploaded: ${response.data[i].import_datetime}`);
+                $(".results").append(`</br>`);
                 $(".results").append(`Rating: ${response.data[i].rating}`);
                 $(".results").append(`</br>`);
-
+                $(".results").append(`Title: ${response.data[i].title}`);
+                $(".results").append(`</br>`);
+                $(".results").append(`</br>`);
 
             }
-
-
+            $(".results").append(`</br>`);
+            $(".results").append(`</br>`);
+            let button = $("<button>" + "Load 10 More Images" + "</button>");
+            
+            
+            button.attr("class", "LoadMore");
+            console.log($(button).val());
+            $(".results").append(button);
+            
 
         });
 
@@ -97,6 +110,73 @@ const system =
 
 
         
+    },
+    displayExtention: function(topicInput){
+        y = y + 10;
+        let search = topicInput;
+        const queryURL = `https://api.giphy.com/v1/gifs/search?api_key=OVaM1ofUqUE26I2l1H5ec6voBazampFz&q=${search}&limit=${y}&offset=0&rating=G&lang=en`
+
+
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function(response) {
+            console.log(response);
+            for(let i = y-10; i < y; i++){
+
+                const imgURL = response.data[i].images.fixed_height_still.url;
+                const image = $("<img>");
+                image.attr("src", imgURL);
+                image.attr("alt", i);
+                image.attr("data-state", "still");
+                image.attr("data-still", imgURL);
+                image.attr("data-animate", response.data[i].images.fixed_height.url);
+                // image.attr("data-animate", `${response.data[i].embed_url} + `);
+
+
+
+                image.attr("data-state", "still");
+                image.attr("class", "gif");
+                
+
+                $(".results").append(image);
+                $(".results").append(`</br>`);
+                $(".results").append(`Date Uploaded: ${response.data[i].import_datetime}`);
+                $(".results").append(`</br>`);
+                $(".results").append(`Rating: ${response.data[i].rating}`);
+                $(".results").append(`</br>`);
+                $(".results").append(`Title: ${response.data[i].title}`);
+                $(".results").append(`</br>`);
+                $(".results").append(`</br>`);
+
+            }
+            $(".results").append(`</br>`);
+            $(".results").append(`</br>`);
+            let button = $("<button>" + "Load 10 More Images" + "</button>");
+            
+            
+            button.attr("class", "LoadMore");
+            console.log($(button).val());
+            $(".results").append(button);
+            
+
+        });
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
     }
 
 
@@ -165,6 +245,7 @@ $(".buttonContainer").append(button1);
 
 
 $(".buttonContainer").on("click",".button", function() {
+    y = 10;
     console.log("Registered Click");
     console.log(this);
     $(".results").empty();
@@ -250,3 +331,17 @@ $(".gif").on("click", function() {
 
     }
   });
+
+
+
+
+  $(".results").on("click", ".LoadMore", function(){
+    // y = 10;
+    $(".LoadMore").remove();
+    console.log("Click Registered");
+    system.displayExtention(variaHolder);
+
+
+
+
+});

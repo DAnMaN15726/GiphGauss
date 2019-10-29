@@ -1,0 +1,77 @@
+body{
+    background-color: rgba(0, 0, 0, 0.945);
+}
+.results{
+    color:rgb(255, 174, 0);
+    position: absolute;
+
+}
+
+.button{
+    background-color: rgba(0, 174, 255, 0.877);
+    color: white;
+    margin: 12px;
+    font-size: 1.5em;
+    border-color: rgba(255, 0, 0, 0);
+    box-shadow: 2px 120px 2px 2px rgba(0, 183, 255, 0);
+    
+}
+.button:hover{
+    transition-duration: .85s;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border: none;
+
+    transition: box-shadow .5s;
+    box-shadow: 1px 12px 50px 5px rgb(231, 236, 238);
+}
+
+
+.button1{
+    position: absolute;
+    right: 21%;
+    top: 0%;
+    background-color: rgba(255, 255, 255, 0.11);
+    box-shadow: 2px 120px 2px 2px rgba(0, 217, 255, 0);
+    border: none;
+    color: white;
+    margin: 6px;
+    font-size: 2em;
+    
+}
+.button1:hover{
+    transition-duration: .85s;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border: none;
+
+    transition: box-shadow .5s;
+    box-shadow: 1px 12px 30px 5px rgb(231, 236, 238);
+}
+
+.results{
+    padding: 30px;
+    font-size: 1.5em;
+}
+
+.form-control{
+    background-color: rgba(0, 195, 255, 0.781);
+    color: white;
+    font-size: 2em;
+    border: none;
+}
+.form-control:active, .form-control:focus{
+    background-color: rgba(0, 0, 0, 0.781);
+    
+    color: white;
+}
+
+.LoadMore{
+    background-color: rgba(0, 174, 255, 0.877);
+    color: white;
+    margin: 12px;
+    font-size: 1.5em;
+    border-color: rgba(255, 0, 0, 0);
+    box-shadow: 2px 120px 2px 2px rgba(0, 183, 255, 0);
+    
+}
