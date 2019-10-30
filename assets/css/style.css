@@ -3,9 +3,25 @@ body{
 }
 .results{
     color:rgb(255, 174, 0);
-    position: absolute;
+    /* position: absolute; */
 
 }
+
+.gif{
+    margin: 12px;
+
+
+}
+
+.gif:hover {
+    color: rgb(255, 174, 0);
+    background-color: rgb(29, 29, 29);
+    z-index: 2;
+
+}
+
+
+
 
 .button{
     background-color: rgba(0, 174, 255, 0.877);

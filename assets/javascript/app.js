@@ -48,18 +48,20 @@ const system =
 
 
                 image.attr("data-state", "still");
-                image.attr("class", "gif");
+                image.attr("class", "gif col-4");
+                
+                image.attr("title", `-DATE UPLOADED-: ${response.data[i].import_datetime} || -RATING-: ${response.data[i].rating} || -TITLE-: ${response.data[i].title}`);
                 
 
                 $(".results").append(image);
-                $(".results").append(`</br>`);
-                $(".results").append(`Date Uploaded: ${response.data[i].import_datetime}`);
-                $(".results").append(`</br>`);
-                $(".results").append(`Rating: ${response.data[i].rating}`);
-                $(".results").append(`</br>`);
-                $(".results").append(`Title: ${response.data[i].title}`);
-                $(".results").append(`</br>`);
-                $(".results").append(`</br>`);
+                // $(".results").append(`</br>`);
+                $("#meta").text(`Date Uploaded: ${response.data[i].import_datetime}`);
+                // $(".results").append(`</br>`);
+                $("#meta").text(`Rating: ${response.data[i].rating}`);
+                // $(".results").append(`</br>`);
+                $("#meta").text(`Title: ${response.data[i].title}`);
+                // $(".results").append(`</br>`);
+                // $(".results").append(`</br>`);
 
             }
             $(".results").append(`</br>`);
@@ -69,6 +71,7 @@ const system =
             
             button.attr("class", "LoadMore");
             console.log($(button).val());
+            
             $(".results").append(button);
             
 
@@ -131,24 +134,28 @@ const system =
                 image.attr("alt", i);
                 image.attr("data-state", "still");
                 image.attr("data-still", imgURL);
+                // image.attr("class", "col-sm-6");
                 image.attr("data-animate", response.data[i].images.fixed_height.url);
                 // image.attr("data-animate", `${response.data[i].embed_url} + `);
 
 
 
                 image.attr("data-state", "still");
-                image.attr("class", "gif");
+                image.attr("class", "gif col-4");
+                image.attr("id", "meta");
+                image.attr("title", `-DATE UPLOADED-: ${response.data[i].import_datetime} || -RATING-: ${response.data[i].rating} || -TITLE-: ${response.data[i].title}`);
+
                 
 
                 $(".results").append(image);
-                $(".results").append(`</br>`);
-                $(".results").append(`Date Uploaded: ${response.data[i].import_datetime}`);
-                $(".results").append(`</br>`);
-                $(".results").append(`Rating: ${response.data[i].rating}`);
-                $(".results").append(`</br>`);
-                $(".results").append(`Title: ${response.data[i].title}`);
-                $(".results").append(`</br>`);
-                $(".results").append(`</br>`);
+                // $(".results").append(`</br>`);
+                $("#meta").text(`Date Uploaded: ${response.data[i].import_datetime}`);
+                // $(".results").append(`</br>`);
+                $("#meta").text(`Rating: ${response.data[i].rating}`);
+                // $(".results").append(`</br>`);
+                $("#meta").text(`Title: ${response.data[i].title}`); 
+                // $(".results").append(`</br>`);
+                // $(".results").append(`</br>`);
 
             }
             $(".results").append(`</br>`);
